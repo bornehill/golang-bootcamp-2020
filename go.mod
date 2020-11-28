@@ -1,4 +1,4 @@
-module api-booking-time
+module github.com/bornehill/golang-bootcamp-2020
 
 go 1.13
 

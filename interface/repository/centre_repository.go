@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"api-booking-time/domain/model"
-	"api-booking-time/usecase/repository"
+	"github.com/bornehill/golang-bootcamp-2020/domain/model"
+	"github.com/bornehill/golang-bootcamp-2020/usecase/repository"
 )
 
 type centreRepository struct {

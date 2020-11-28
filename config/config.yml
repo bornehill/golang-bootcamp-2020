@@ -1,2 +1,4 @@
 server:
+  prefix: /api/v1
   port: 3000
+  

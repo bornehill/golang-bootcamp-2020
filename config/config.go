@@ -6,13 +6,13 @@ import (
 	"os"
 
 	"github.com/davecgh/go-spew/spew"
-
 	"github.com/spf13/viper"
 )
 
 type config struct {
 	Server struct {
-		Port string
+		Prefix	string
+		Port	string
 	}
 }
 

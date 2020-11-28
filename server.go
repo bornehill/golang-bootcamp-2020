@@ -5,10 +5,10 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/bornehill/golang-bootcamp-2020/config"
+	"github.com/bornehill/golang-bootcamp-2020/infrastructure/datastore"
+	
 	"github.com/gorilla/mux"
-
-	"api-booking-time/config"
-	"api-booking-time/infrastructure/datastore"
 )
 
 var (
@@ -20,7 +20,7 @@ func main() {
 	db = datastore.OpenDb()
 
 	r := mux.NewRouter()
-	api := r.PathPrefix("/api/v1").Subrouter()
+	api := r.PathPrefix(config.Settings.Server.Prefix).Subrouter()
 	api.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "api booking-time")
 	})

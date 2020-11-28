@@ -7,9 +7,9 @@ import (
 	"os"
 	"strconv"	
 
-	"api-booking-time/domain/model"
-	"api-booking-time/usecase/repository"
-	ir "api-booking-time/interface/repository"
+	"github.com/bornehill/golang-bootcamp-2020/domain/model"
+	"github.com/bornehill/golang-bootcamp-2020/usecase/repository"
+	ir "github.com/bornehill/golang-bootcamp-2020/interface/repository"
 )
 
 type DbRepository struct {
@@ -39,20 +39,29 @@ func loadData(r io.Reader) *[]*model.Centre {
 
 	for {
 		row, err := reader.Read()
-		if err == io.EOF {
-			log.Println("End of File")
-			break
-		} else if err != nil {
-			log.Println(err)
-			break
-		}
-		id, _ := strconv.Atoi(row[0])
-		capacity, _ := strconv.Atoi(row[6])
-		openness, _ := strconv.Atoi(row[7])
 
 		if err != nil {
-			log.Println(err)
+			if err == io.EOF {
+				log.Println("End of File")
+			} else {
+				log.Println(err)	
+			}
+			break
 		}
+
+		id, errId := strconv.Atoi(row[0])
+		capacity, errCap := strconv.Atoi(row[6])
+		openness, errOpen := strconv.Atoi(row[7])
+
+		switch {
+			case errId != nil:
+				log.Println(errId)
+			case errCap != nil:
+				log.Println(errCap)
+			case errOpen != nil:
+				log.Println(errOpen)								
+		}
+
 		centre := &model.Centre{
 			Id:			id,
 			Capacity:	capacity,
