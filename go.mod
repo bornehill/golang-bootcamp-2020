@@ -6,4 +6,6 @@ require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/gorilla/mux v1.8.0
 	github.com/spf13/viper v1.7.1
+	github.com/stretchr/testify v1.3.0
+	github.com/vektra/mockery/v2 v2.4.0 // indirect
 )
