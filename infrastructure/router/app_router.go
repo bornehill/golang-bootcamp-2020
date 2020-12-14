@@ -10,10 +10,13 @@ type appRouter struct {
 	App controller.AppController
 }
 
+//AppRouter App router Interface
 type AppRouter interface {
 	GetCentres(w http.ResponseWriter, r *http.Request)
 }
 
+/*NewAppRouter Create new App controller Router
+<param name="ac">App Controller</param> */
 func NewAppRouter(ac controller.AppController) AppRouter {
 	return &appRouter{ac}
 }

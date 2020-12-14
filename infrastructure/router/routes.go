@@ -9,8 +9,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func NewRouter(prefix string, c controller.AppController) *mux.Router {
-	ar := NewAppRouter(c)
+/*NewRouter Create new Mux Router
+<param name="prefix">API URL Prefix</param>
+<param name="ac">App Controller</param> */
+func NewRouter(prefix string, ac controller.AppController) *mux.Router {
+	ar := NewAppRouter(ac)
 	r := mux.NewRouter()
 
 	api := r.PathPrefix(prefix).Subrouter()
